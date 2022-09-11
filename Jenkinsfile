@@ -3,7 +3,7 @@ pipeline{
 	stages{
 	  stage('git-clone'){
 	    steps{
-	    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-Jenkins', url: 'https://github.com/Engineer-Felix/multibranch-pipeline.git']]])
+	    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-Jenkins', url: 'https://github.com/Engineer-Felix/Parallel-repo.git']]])
 	    }
 	  }
       stage('parallel-level'){
@@ -16,6 +16,7 @@ pipeline{
           stage('sub-job2'){
             steps{
               echo "sub-job2 task"
+	      echo "I am engineer felix"
             }
           }
           stage('user-check'){
@@ -33,6 +34,11 @@ pipeline{
       stage('webhook-fix'){
         steps{
           echo "webhook fix"
+        }
+      }
+      stage('system check'){
+        steps{
+          echo "I am engineer felix"
         }
       }
 	}
